@@ -1,0 +1,2 @@
+# fastapi-projects
+FastAPI learning
