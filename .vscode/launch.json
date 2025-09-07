@@ -26,7 +26,12 @@
                 // "13_cookie_params:app",
                 // "15_cookie_param_models:app",
                 // "16_header_param_models:app",
-                "17_response_model:app",
+                // "17_response_model:app",
+                // "18_extra_models:app",
+                // "20_request_forms:app",
+                // "22_request_files:app",
+                // "23_request_forms_and_files:app",
+                "24_handling_errors:app",
                 "--reload"
             ],
             "jinja": true
