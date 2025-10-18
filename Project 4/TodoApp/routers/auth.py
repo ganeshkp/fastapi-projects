@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 from ..database import SessionLocal
-from ..models import Users
+from ..models import User
 from passlib.context import CryptContext
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
@@ -50,7 +50,7 @@ db_dependency = Annotated[Session, Depends(get_db)]
 
 
 def authenticate_user(username: str, password: str, db):
-    user = db.query(Users).filter(Users.username == username).first()
+    user = db.query(User).filter(User.username == username).first()
     if not user:
         return False
     if not bcrypt_context.verify(password, user.hashed_password):
@@ -87,7 +87,7 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
 async def create_user(db: db_dependency, create_user_request: CreateUserRequest):
-    create_user_model = Users(
+    create_user_model = User(
         email=create_user_request.email,
         username=create_user_request.username,
         first_name=create_user_request.first_name,
