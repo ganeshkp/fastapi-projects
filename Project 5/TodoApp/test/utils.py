@@ -5,7 +5,7 @@ from ..database import Base
 from ..main import app
 from fastapi.testclient import TestClient
 import pytest
-from ..models import Todos, User
+from ..models import Todos, Owner
 from ..routers.auth import bcrypt_context
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./testdb.db"
@@ -29,8 +29,8 @@ def override_get_db():
         db.close()
 
 
-def override_get_current_user():
-    return {"username": "codingwithrobytest", "id": 1, "user_role": "admin"}
+def override_get_current_owner():
+    return {"username": "codingwithrobytest", "id": 1, "owner_role": "admin"}
 
 
 client = TestClient(app)
@@ -56,8 +56,8 @@ def test_todo():
 
 
 @pytest.fixture
-def test_user():
-    user = User(
+def test_owner():
+    owner = Owner(
         username="codingwithrobytest",
         email="codingwithrobytest@email.com",
         first_name="Eric",
@@ -67,9 +67,9 @@ def test_user():
         phone_number="(111)-111-1111",
     )
     db = TestingSessionLocal()
-    db.add(user)
+    db.add(owner)
     db.commit()
-    yield user
+    yield owner
     with engine.connect() as connection:
-        connection.execute(text("DELETE FROM user;"))
+        connection.execute(text("DELETE FROM owner;"))
         connection.commit()

@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS owner;
 
-CREATE TABLE user (
+CREATE TABLE owner (
   id SERIAL,
   email varchar(200) DEFAULT NULL,
   username varchar(45) DEFAULT NULL,
@@ -22,5 +22,5 @@ CREATE TABLE todos (
   complete boolean  DEFAULT NULL,
   owner_id integer  DEFAULT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (owner_id) REFERENCES user(id)
+  FOREIGN KEY (owner_id) REFERENCES owner(id)
 );

@@ -2,8 +2,8 @@ from .database import Base
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
 
-class User(Base):
-    __tablename__ = "user"
+class Owner(Base):
+    __tablename__ = "owner"
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True)
@@ -24,4 +24,4 @@ class Todos(Base):
     description = Column(String)
     priority = Column(Integer)
     complete = Column(Boolean, default=False)
-    owner_id = Column(Integer, ForeignKey("user.id"))
+    owner_id = Column(Integer, ForeignKey("owner.id"))

@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `owner`;
 
-CREATE TABLE `user` (
+CREATE TABLE `owner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(200) DEFAULT NULL,
   `username` varchar(45) DEFAULT NULL,
@@ -22,5 +22,5 @@ CREATE TABLE `todos` (
   `complete` int(1) DEFAULT NULL,
   `owner_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`owner_id`) REFERENCES user(`id`)
+  FOREIGN KEY (`owner_id`) REFERENCES owner(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

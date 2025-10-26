@@ -5,23 +5,14 @@ returns a dictionary based on those values
 """
 
 
-def user_dictionary(firstname, lastname, age):
-    created_user_dictionary = {
+def owner_dictionary(firstname, lastname, age):
+    created_owner_dictionary = {
         "firstname": firstname,
         "lastname": lastname,
-        "age": age
+        "age": age,
     }
-    return created_user_dictionary
+    return created_owner_dictionary
 
 
-solution_dictionary = user_dictionary(firstname="Eric", lastname="Roby", age=32)
+solution_dictionary = owner_dictionary(firstname="Eric", lastname="Roby", age=32)
 print(solution_dictionary)
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-"""create phone number for user col
+"""create phone number for owner col
 
 Revision ID: aeff25f89db0
 Revises:
@@ -20,8 +20,8 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.add_column("user", sa.Column("phone_number", sa.String(), nullable=True))
+    op.add_column("owner", sa.Column("phone_number", sa.String(), nullable=True))
 
 
 def downgrade() -> None:
-    op.drop_column("user", "phone_number")
+    op.drop_column("owner", "phone_number")
