@@ -21,4 +21,4 @@ app.include_router(owner.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run("Project4.TodoApp.main:app", reload=True)
+    uvicorn.run("TodoApp.main:app", reload=True)

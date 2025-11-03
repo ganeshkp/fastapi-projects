@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-        "name": "Debug FastAPI (TodoApp)",
+        "name": "Project4 - Debug FastAPI (TodoApp)",
         "type": "debugpy",
         "request": "launch",
-        "module": "Project4.TodoApp.main",
-        "cwd": "${workspaceFolder}",
+        "module": "TodoApp.main",
+        "cwd": "${workspaceFolder}/Project4",
         "args": ["--reload"],
         "justMyCode": true
         }
